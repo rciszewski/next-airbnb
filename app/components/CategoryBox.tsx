@@ -21,11 +21,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
   const handleClick = useCallback(() => {
     let currentQuery = {};
-   
+
     if (params) {
       currentQuery = qs.parse(params.toString());
     }
-   
+
     const updatedQuery: any = {
       ...currentQuery,
       category: label,
