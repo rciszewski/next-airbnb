@@ -6,6 +6,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import { Suspense } from "react";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -23,11 +24,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ToasterProvider />
-        <RegisterModal />
-        <LoginModal />
-        <Navbar currentUser={currentUser}/>
-        {children}
+        <Suspense fallback={<div>Loading...</div>}>
+          <ToasterProvider />
+          <RegisterModal />
+          <LoginModal />
+          <Navbar currentUser={currentUser} />
+          {children}
+        </Suspense>
       </body>
     </html>
   );
