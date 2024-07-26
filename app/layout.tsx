@@ -7,6 +7,7 @@ import LoginModal from "./components/modals/LoginModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { Suspense } from "react";
+import RentModal from "./components/modals/RentModal";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
+          <RentModal />
           <Navbar currentUser={currentUser} />
           {children}
         </Suspense>
